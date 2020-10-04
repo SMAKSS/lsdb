@@ -1,26 +1,50 @@
 {
   "name": "lsdb",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "description": "✨Database powered by localStorage",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
+  "main": "dist/lsdb.js",
+  "types": "dist/lsdb.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@buzz-js"
   },
   "scripts": {
-    "dev": "tsc --watch --project tsconfig.json"
+    "dev": "tsc --watch --project tsconfig.json",
+    "build": "tsc && tsc -p tsconfig.browser.json",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/buzz-js/lsdb.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "database",
+    "localstorage"
+  ],
+  "author": "Roberth González",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/buzz-js/lsdb/issues"
   },
   "homepage": "https://github.com/buzz-js/lsdb#readme",
   "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
+  },
+  "jest": {
+    "transform": {
+      "\\.(ts|tsx)$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|tsx|js|jsx)$",
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/build/",
+      "/examples/",
+      "/.github/"
+    ]
   }
 }
